@@ -7,11 +7,11 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    NutButton: typeof import('@nutui/nutui-taro')['Button']
+    Counter: typeof import('./src/components/Counter.vue')['default']
+    Icon: typeof import('./src/components/Icon.vue')['default']
     NutForm: typeof import('@nutui/nutui-taro')['Form']
     NutFormItem: typeof import('@nutui/nutui-taro')['FormItem']
     NutInput: typeof import('@nutui/nutui-taro')['Input']
     NutTextarea: typeof import('@nutui/nutui-taro')['Textarea']
-    NutToast: typeof import('@nutui/nutui-taro')['Toast']
   }
 }

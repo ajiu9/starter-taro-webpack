@@ -2,9 +2,9 @@ import { defineConfig, type UserConfigExport } from '@tarojs/cli'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import devConfig from './dev'
 import prodConfig from './prod'
+import {UnifiedWebpackPluginV5} from 'weapp-tailwindcss/webpack'
 import NutUIResolver from '@nutui/auto-import-resolver'
 import Components from 'unplugin-vue-components/webpack'
-
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
@@ -67,7 +67,19 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
         chain.plugin('unplugin-vue-components').use(Components({
           resolvers: [NutUIResolver({taro: true})]
         }))
-      }
+        chain.merge({
+          plugin: {
+            install: {
+              plugin: UnifiedWebpackPluginV5,
+              args: [
+                {
+                  rem2rpx: true,
+                }
+              ]
+            }
+          }
+        })
+      },
     },
     h5: {
       publicPath: '/',
@@ -99,6 +111,7 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
         chain.plugin('unplugin-vue-components').use(Components({
           resolvers: [NutUIResolver({taro: true})]
         }))
+
       }
     },
     rn: {
@@ -110,6 +123,9 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
       }
     }
   }
+
+  // process.env.BROWSERSLIST_ENV = process.env.NODE_ENV
+
   if (process.env.NODE_ENV === 'development') {
     // 本地开发构建配置（不混淆压缩）
     return merge({}, baseConfig, devConfig)
