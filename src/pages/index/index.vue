@@ -41,6 +41,7 @@ const onChange = (value) => {
 
 <template>
   <view class="index">
+    <div>test</div>
     <!-- <Counter /> -->
 
     <view class="text-[#123456] bg-amber-100">
