@@ -9,6 +9,8 @@
     "css": "Sass",
     "framework": "Vue3"
   },
+  "author": "",
+  "license": "MIT",
   "scripts": {
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
@@ -29,13 +31,11 @@
     "lint": "eslint .",
     "postinstall": "weapp-tw patch"
   },
-	"browserslist": [
-		"last 3 versions",
-		"Android >= 6.0",
-		"ios >= 10"
-	],
-  "author": "",
-  "license": "MIT",
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 6.0",
+    "ios >= 10"
+  ],
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "@nutui/nutui-taro": "^4.2.8",
@@ -90,15 +90,15 @@
     "vue-loader": "^17.0.0",
     "webpack": "5.78.0"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "weapp-tailwindcss"
+    ]
+  },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "weapp-tailwindcss"
-    ]
   }
 }
