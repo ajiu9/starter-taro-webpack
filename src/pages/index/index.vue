@@ -20,6 +20,23 @@ const formData = ref({
   addr: '',
   info: '',
 })
+
+const val1 = ref(0)
+const val2 = ref('a')
+const options1 = ref([
+  { text: '全部商品', value: 0 },
+  { text: '新款商品', value: 1 },
+  { text: '活动商品', value: 2 },
+])
+const options2 = ref([
+  { text: '默认排序', value: 'a' },
+  { text: '好评排序', value: 'b' },
+  { text: '销量排序', value: 'c' },
+])
+
+const onChange = (value) => {
+  console.log('排序方式改变:', value)
+}
 </script>
 
 <template>
@@ -35,7 +52,7 @@ const formData = ref({
       </view>
     </view>
 
-        <!-- Iconify 示例 -->
+    <!-- Iconify 示例 -->
     <view class="mt-4 p-4 bg-gray-100 rounded">
       <view class="text-lg font-bold mb-2">
         Iconify 图标示例
@@ -62,32 +79,16 @@ const formData = ref({
         <view class="flex justify-around items-center">
           <view class="i-mdi-home text-blue-500 text-2xl" />
           <!-- <view class="i-mdi-account text-green-500 text-2xl" /> -->
-         <!--  <view class="i-mdi-heart text-red-500 text-2xl" />
+          <!--  <view class="i-mdi-heart text-red-500 text-2xl" />
           <view class="i-mdi-star text-yellow-500 text-2xl" /> -->
         </view>
       </view>
     </view>
 
-
-
-    <nut-button type="primary">
-      Primary
-    </nut-button>
-    <nut-button type="info">
-      Info
-    </nut-button>
-    <nut-button type="default">
-      Default
-    </nut-button>
-    <nut-button type="danger">
-      Danger
-    </nut-button>
-    <nut-button type="warning">
-      Warning
-    </nut-button>
-    <nut-button type="success">
-      Success
-    </nut-button>
+    <nut-menu>
+      <nut-menu-item v-model="val1" :options="options1" />
+      <nut-menu-item v-model="val2" :options="options2" @change="onChange" />
+    </nut-menu>
 
     <nut-cell title="Title" desc="Description"></nut-cell>
     <nut-cell title="Title" sub-title="Subtitle" desc="Description"></nut-cell>
