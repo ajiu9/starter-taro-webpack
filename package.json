@@ -9,7 +9,7 @@
     "css": "Sass",
     "framework": "Vue3"
   },
-  "author": "",
+  "author": "ajiu9<615944323@qq.com>",
   "license": "MIT",
   "scripts": {
     "build:weapp": "taro build --type weapp",
