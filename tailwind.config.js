@@ -8,7 +8,7 @@ export default {
   plugins: [
     iconsPlugin({
       // Select the icon collections you want to use
-      collections: getIconCollections(['mdi', 'lucide']),
+      collections: getIconCollections(['carbon']),
     }),
   ],
   // 小程序环境下的特殊配置

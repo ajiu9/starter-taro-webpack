@@ -1,6 +1,6 @@
 {
-  "libVersion": "3.8.3",
-  "projectname": "webpacktest",
+  "libVersion": "3.9.1",
+  "projectname": "taro",
   "setting": {
     "urlCheck": true,
     "coverView": false,

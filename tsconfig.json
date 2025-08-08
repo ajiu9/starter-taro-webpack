@@ -23,5 +23,6 @@
     "allowSyntheticDefaultImports": true
   },
   "include": ["./src", "./types", "components.d.ts"],
-  "compileOnSave": false
+  "compileOnSave": false,
+  "types": ["miniprogram-api-typings"]
 }
